@@ -76,6 +76,7 @@ public class TennisGame1 implements TennisGame {
                 }
             }
         }
+        System.out.println("score : " + score);
         return score;
     }
 }

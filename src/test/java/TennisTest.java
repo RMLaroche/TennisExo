@@ -1,5 +1,12 @@
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -12,14 +19,18 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class TennisTest {
 
-    private int player1Score;
-    private int player2Score;
-    private String expectedScore;
+	protected int player1Score;
+    protected int player2Score;
+    protected String expectedScore;
 
     public TennisTest(int player1Score, int player2Score, String expectedScore) {
         this.player1Score = player1Score;
         this.player2Score = player2Score;
         this.expectedScore = expectedScore;
+    }
+    @Before
+    public void setup() throws IOException {
+    	
     }
     
     @Parameters
@@ -78,8 +89,11 @@ public class TennisTest {
     }
 
     @Test
-    public void checkAllScoresTennisGame1() {
-    	System.out.println("------------------------------------");
+    public void checkAllScoresTennisGame1() throws IOException {
+    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	FileOutputStream os = new FileOutputStream(file, false);
+    	PrintStream fileOut = new PrintStream(os);
+    	System.setOut(fileOut);
         TennisGame1 game = new TennisGame1("player1", "player2");
         checkAllScores(game);
         System.out.println(game.getScore());
@@ -87,14 +101,22 @@ public class TennisTest {
     }
 
     @Test
-    public void checkAllScoresTennisGame2() {
+    public void checkAllScoresTennisGame2() throws FileNotFoundException {
+    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	FileOutputStream os = new FileOutputStream(file, false);
+    	PrintStream fileOut = new PrintStream(os);
+    	System.setOut(fileOut);
         TennisGame2 game = new TennisGame2("player1", "player2");
         checkAllScores(game);
         assertEquals(game.getScore(), this.expectedScore);
     }
 
     @Test
-    public void checkAllScoresTennisGame3() {
+    public void checkAllScoresTennisGame3() throws FileNotFoundException {
+    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	FileOutputStream os = new FileOutputStream(file, false);
+    	PrintStream fileOut = new PrintStream(os);
+    	System.setOut(fileOut);
         TennisGame3 game = new TennisGame3("player1", "player2");
         checkAllScores(game);
         assertEquals(game.getScore(), this.expectedScore);

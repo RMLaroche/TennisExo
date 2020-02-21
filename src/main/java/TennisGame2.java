@@ -12,6 +12,7 @@ public class TennisGame2 implements TennisGame
     public TennisGame2(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
+        System.out.println("new "+ this.getClass().toString() + " with " + this.player1Name + " and " + this.player2Name);
     }
 
     public String getScore(){
@@ -97,11 +98,12 @@ public class TennisGame2 implements TennisGame
         {
             score = "Win for player2";
         }
+        System.out.println("score : " + score);
         return score;
     }
     
     public void SetP1Score(int number){
-        
+        System.out.println("augmentation du score de P1 de "+number);
         for (int i = 0; i < number; i++)
         {
             P1Score();
@@ -110,7 +112,7 @@ public class TennisGame2 implements TennisGame
     }
     
     public void SetP2Score(int number){
-        
+    	System.out.println("augmentation du score de P2 de "+number);
         for (int i = 0; i < number; i++)
         {
             P2Score();
@@ -127,9 +129,13 @@ public class TennisGame2 implements TennisGame
     }
 
     public void wonPoint(String player) {
-        if (player == "player1")
+        if (player == "player1") {
+        	System.out.println(this.player1Name + "gagne 1 point et à un score de " + this.P1point);
             P1Score();
-        else
+        }
+        else {
             P2Score();
+        	System.out.println(this.player2Name + "gagne 1 point et à un score de " + this.P2point);
+        }
     }
 }
