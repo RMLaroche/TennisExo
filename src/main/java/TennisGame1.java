@@ -9,13 +9,18 @@ public class TennisGame1 implements TennisGame {
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
+        System.out.println("new "+ this.getClass().toString() + " with " + this.player1Name + " and " + this.player2Name);
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
+        if (playerName == "player1") {
             m_score1 += 1;
-        else
+            System.out.println(this.player1Name + "gagne 1 point et à un score de " + this.m_score1);
+        }
+        else {
             m_score2 += 1;
+            System.out.println(this.player2Name + "gagne 1 point et à un score de " + this.m_score2);
+        }
     }
 
     public String getScore() {

@@ -79,20 +79,25 @@ public class TennisTest {
 
     @Test
     public void checkAllScoresTennisGame1() {
+    	System.out.println("------------------------------------");
         TennisGame1 game = new TennisGame1("player1", "player2");
         checkAllScores(game);
+        System.out.println(game.getScore());
+        assertEquals(game.getScore(), this.expectedScore);
     }
 
     @Test
     public void checkAllScoresTennisGame2() {
         TennisGame2 game = new TennisGame2("player1", "player2");
         checkAllScores(game);
+        assertEquals(game.getScore(), this.expectedScore);
     }
 
     @Test
     public void checkAllScoresTennisGame3() {
         TennisGame3 game = new TennisGame3("player1", "player2");
         checkAllScores(game);
+        assertEquals(game.getScore(), this.expectedScore);
     }
 
 }
