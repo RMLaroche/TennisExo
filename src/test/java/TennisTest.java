@@ -90,36 +90,38 @@ public class TennisTest {
 
     @Test
     public void checkAllScoresTennisGame1() throws IOException {
-    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	String path = "GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore;
+    	File file = new File(path+".txt");
     	FileOutputStream os = new FileOutputStream(file, false);
     	PrintStream fileOut = new PrintStream(os);
     	System.setOut(fileOut);
         TennisGame1 game = new TennisGame1("player1", "player2");
         checkAllScores(game);
-        System.out.println(game.getScore());
-        assertEquals(game.getScore(), this.expectedScore);
+        assertEquals(Scripts.readFile(path+".txt"), Scripts.readFile(path+"_approved.txt"));
     }
 
     @Test
     public void checkAllScoresTennisGame2() throws FileNotFoundException {
-    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	String path = "GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore;
+    	File file = new File(path+".txt");
     	FileOutputStream os = new FileOutputStream(file, false);
     	PrintStream fileOut = new PrintStream(os);
     	System.setOut(fileOut);
         TennisGame2 game = new TennisGame2("player1", "player2");
         checkAllScores(game);
-        assertEquals(game.getScore(), this.expectedScore);
+        assertEquals(Scripts.readFile(path+".txt"), Scripts.readFile(path+"_approved.txt"));
     }
 
     @Test
     public void checkAllScoresTennisGame3() throws FileNotFoundException {
-    	File file = new File("GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore+".txt");
+    	String path = "GoldenMaster\\"+new Throwable() .getStackTrace()[0] .getMethodName()+"_"+this.player1Score+"_"+this.player2Score+"_"+this.expectedScore;
+    	File file = new File(path+".txt");
     	FileOutputStream os = new FileOutputStream(file, false);
     	PrintStream fileOut = new PrintStream(os);
     	System.setOut(fileOut);
         TennisGame3 game = new TennisGame3("player1", "player2");
         checkAllScores(game);
-        assertEquals(game.getScore(), this.expectedScore);
+        assertEquals(Scripts.readFile(path+".txt"), Scripts.readFile(path+"_approved.txt"));
     }
 
 }

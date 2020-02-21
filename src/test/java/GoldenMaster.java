@@ -25,8 +25,6 @@ public class GoldenMaster extends TennisTest {
 		System.setOut(fileOut);
 		TennisGame1 game = new TennisGame1("player1", "player2");
 		checkAllScores(game);
-		System.out.println(game.getScore());
-		assertEquals(game.getScore(), this.expectedScore);
 	}
 	@Override
 	@Test
@@ -38,7 +36,6 @@ public class GoldenMaster extends TennisTest {
 		System.setOut(fileOut);
 		TennisGame2 game = new TennisGame2("player1", "player2");
 		checkAllScores(game);
-		assertEquals(game.getScore(), this.expectedScore);
 	}
 	@Override
 	@Test
@@ -50,7 +47,6 @@ public class GoldenMaster extends TennisTest {
 		System.setOut(fileOut);
 		TennisGame3 game = new TennisGame3("player1", "player2");
 		checkAllScores(game);
-		assertEquals(game.getScore(), this.expectedScore);
 	}
 
 }

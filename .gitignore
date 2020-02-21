@@ -9,3 +9,6 @@ target/
 # IntelliJ files
 *.iml
 .idea/
+
+# GoldenMaster Files
+GoldenMaster/
