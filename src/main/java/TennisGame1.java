@@ -1,34 +1,31 @@
-
 public class TennisGame1 implements TennisGame {
     
-    private int m_score1 = 0;
-    private int m_score2 = 0;
-    private String player1Name;
-    private String player2Name;
+    private Player player1;
+    private Player player2;
 
-    public TennisGame1(String player1Name, String player2Name) {
-        this.player1Name = player1Name;
-        this.player2Name = player2Name;
-        System.out.println("new "+ this.getClass().toString() + " with " + this.player1Name + " and " + this.player2Name);
+    public TennisGame1(String name1, String name2) {
+        this.player1 = new Player(name1, 0);
+        this.player2 = new Player(name2, 0);
+        System.out.println("new "+ this.getClass().toString() + " with " + this.player1.name + " and " + this.player2.name);
     }
 
     public void wonPoint(String playerName) {
         if (playerName == "player1") {
-            m_score1 += 1;
-            System.out.println(this.player1Name + "gagne 1 point et à un score de " + this.m_score1);
+            player1.score += 1;
+            System.out.println(this.player1.name + "gagne 1 point et à un score de " + this.player1.score);
         }
         else {
-            m_score2 += 1;
-            System.out.println(this.player2Name + "gagne 1 point et à un score de " + this.m_score2);
+            player2.score += 1;
+            System.out.println(this.player2.name + "gagne 1 point et à un score de " + this.player2.score);
         }
     }
 
     public String getScore() {
         String score = "";
         int tempScore=0;
-        if (m_score1==m_score2)
+        if (player1.score==player2.score)
         {
-            switch (m_score1)
+            switch (player1.score)
             {
                 case 0:
                         score = "Love-All";
@@ -45,9 +42,9 @@ public class TennisGame1 implements TennisGame {
                 
             }
         }
-        else if (m_score1>=4 || m_score2>=4)
+        else if (player1.score>=4 || player2.score>=4)
         {
-            int minusResult = m_score1-m_score2;
+            int minusResult = player1.score-player2.score;
             if (minusResult==1) score ="Advantage player1";
             else if (minusResult ==-1) score ="Advantage player2";
             else if (minusResult>=2) score = "Win for player1";
@@ -57,8 +54,8 @@ public class TennisGame1 implements TennisGame {
         {
             for (int i=1; i<3; i++)
             {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
+                if (i==1) tempScore = player1.score;
+                else { score+="-"; tempScore = player2.score;}
                 switch(tempScore)
                 {
                     case 0:
